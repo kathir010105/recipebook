@@ -1,0 +1,14 @@
+{
+  "name": "recipebook-client",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+    // missing react-scripts, intentionally broken
+  },
+  "scripts": {
+    "start": "react-scripts start", // this will fail
+    "build": "react-scripts build"
+  }
+} 
