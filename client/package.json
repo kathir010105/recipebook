@@ -5,10 +5,9 @@
   "dependencies": {
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
-    // missing react-scripts, intentionally broken
   },
   "scripts": {
-    "start": "react-scripts start", // this will fail
+    "start": "react-scripts start",
     "build": "react-scripts build"
   }
 } 

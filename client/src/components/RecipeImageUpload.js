@@ -14,7 +14,6 @@ function RecipeImageUpload() {
       <label>Recipe Image (Broken): </label>
       <input type="file" onChange={handleUpload} />
       {error && <div style={{ color: 'red' }}>{error}</div>}
-      {/* Image never displays */}
     </div>
   );
 }

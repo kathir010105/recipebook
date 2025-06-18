@@ -4,7 +4,6 @@ function SearchBar({ onSearch }) {
   const [query, setQuery] = useState('');
 
   function handleSearch() {
-    // Broken: doesn't actually filter
     onSearch(query);
   }
 

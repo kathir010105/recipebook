@@ -4,7 +4,6 @@
   "main": "index.js",
   "dependencies": {
     "express": "^4.18.2"
-    // missing body-parser, cors, etc.
   },
   "scripts": {
     "start": "node index.js"

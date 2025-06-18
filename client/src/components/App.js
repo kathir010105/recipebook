@@ -8,22 +8,19 @@ import Profile from './Profile';
 import ThemeSwitcher from './ThemeSwitcher';
 import Notifications from './Notifications';
 
-// Dead code
 function unused() { return null; }
 
 function App() {
-  const [recipes, setRecipes] = useState([]); // never populated
+  const [recipes, setRecipes] = useState([]);
   const [error, setError] = useState(null);
-  const [loggedIn, setLoggedIn] = useState(false); // always false
+  const [loggedIn, setLoggedIn] = useState(false);
   const [search, setSearch] = useState('');
   const [showProfile, setShowProfile] = useState(false);
 
-  // Broken add recipe
   function addRecipe() {
     setError('Adding recipes is broken.');
   }
 
-  // Random crash
   if (Math.random() > 0.98) throw new Error('App crashed randomly!');
 
   if (!loggedIn) return <Login />;
@@ -48,7 +45,6 @@ function App() {
           </li>
         ))}
       </ul>
-      {/* TODO: Add pagination */}
     </div>
   );
 }

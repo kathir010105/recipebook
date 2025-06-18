@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 function Comments({ recipeId }) {
-  const [comments, setComments] = useState([]); // never loads
+  const [comments, setComments] = useState([]);
   const [text, setText] = useState('');
   const [error, setError] = useState(null);
 

@@ -4,7 +4,7 @@ function ThemeSwitcher() {
   const [dark, setDark] = useState(false);
   function toggleTheme() {
     setDark(d => !d);
-    document.body.style.background = dark ? '#f99' : '#222'; // only changes background
+    document.body.style.background = dark ? '#f99' : '#222';
   }
   return (
     <button onClick={toggleTheme} style={{ margin: 10 }}>

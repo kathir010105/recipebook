@@ -1,7 +1,6 @@
 import React from 'react';
 
 function Favorites({ recipes }) {
-  // Broken: favorites never persist, always empty
   const favorites = [];
   return (
     <div>

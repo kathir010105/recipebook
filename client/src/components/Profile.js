@@ -1,7 +1,6 @@
 import React from 'react';
 
 function Profile() {
-  // Broken: no user info
   return (
     <div>
       <h2>Profile (Broken)</h2>
