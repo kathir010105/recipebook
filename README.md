@@ -121,8 +121,15 @@ brokenb/RecipeBook/
 - Use environment variables for configuration
 - Add proper logging and debugging tools
 
-## 🏆 brokenb Challenge
+## 📚 Helpful Official Docs
 
-This is your opportunity to showcase your skills in the **brokenb** community. Transform this broken application into something amazing!
+- 🔧 [MongoDB Documentation](https://www.mongodb.com/docs/)
+- 🌐 [Express.js Documentation](https://expressjs.com/)
+- ⚛️ [React Documentation](https://react.dev/)
+- 🟩 [Node.js Documentation](https://nodejs.org/en/docs)
+- 🔐 [JWT Official Introduction](https://jwt.io/introduction)
+- 🎨 [MDN CSS Flexbox Guide](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Basic_Concepts_of_Flexbox)
+- 📦 [npm Documentation](https://docs.npmjs.com/)
+
 
 Good luck! 🍀
