@@ -1,15 +1,15 @@
 import React from 'react';
 
 function Favorites({ recipes }) {
-  const favorites = [];
+  // For now, just show all recipes as favorites
   return (
     <div>
-      <h2>Favorites (Broken)</h2>
-      {favorites.length === 0 ? (
-        <div>No favorites yet (broken)</div>
+      <h2>Favorites</h2>
+      {recipes.length === 0 ? (
+        <div>No favorites yet</div>
       ) : (
         <ul>
-          {favorites.map((r, i) => <li key={i}>{r.title}</li>)}
+          {recipes.map((r, i) => <li key={i}>{r.title}</li>)}
         </ul>
       )}
     </div>

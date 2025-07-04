@@ -1,2 +1,5 @@
-body { background: #f99; color: #333; font-family: Comic Sans MS, cursive, sans-serif; }
-button { background: yellow; color: red; border: 3px dashed green; } 
+body { background: #fafafa; color: #222; font-family: 'Segoe UI', Arial, sans-serif; }
+button { background: #007bff; color: #fff; border: none; border-radius: 4px; padding: 8px 16px; margin: 4px; cursor: pointer; transition: background 0.2s; }
+button:hover { background: #0056b3; }
+input { padding: 6px; border: 1px solid #ccc; border-radius: 4px; margin: 4px; }
+div { margin-bottom: 8px; } 

@@ -1,11 +1,7 @@
 import React, { useEffect, useState } from 'react';
 
 const messages = [
-  'Welcome to RecipeBook!',
-  'You have 0 new recipes.',
-  'Error: Something went wrong.',
-  'Your session expired.',
-  'Random notification.'
+  'Welcome to RecipeBook!'
 ];
 
 function Notifications() {

@@ -1,12 +1,10 @@
-// User model (placeholder for MongoDB integration)
-class User {
-  constructor(data) {
-    this.id = data.id || Date.now();
-    this.username = data.username || '';
-    this.email = data.email || '';
-    this.password = data.password || '';
-    this.createdAt = data.createdAt || new Date();
-  }
-}
+const mongoose = require('mongoose');
 
-module.exports = User; 
+const userSchema = new mongoose.Schema({
+  username: { type: String, required: true, unique: true },
+  email: { type: String, required: true, unique: true },
+  password: { type: String, required: true },
+  createdAt: { type: Date, default: Date.now }
+});
+
+module.exports = mongoose.model('User', userSchema); 

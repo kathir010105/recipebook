@@ -6,12 +6,13 @@ function RecipeImageUpload() {
 
   function handleUpload(e) {
     setImage(e.target.files[0]);
-    setError('Image upload is broken.');
+    setError(null);
+    // TODO: Implement image upload logic
   }
 
   return (
     <div>
-      <label>Recipe Image (Broken): </label>
+      <label>Recipe Image: </label>
       <input type="file" onChange={handleUpload} />
       {error && <div style={{ color: 'red' }}>{error}</div>}
     </div>

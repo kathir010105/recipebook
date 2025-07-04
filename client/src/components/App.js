@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import Login from './Login';
+import React, { useState, useEffect } from 'react';
+import AuthPage from './Login';
 import Favorites from './Favorites';
 import RecipeImageUpload from './RecipeImageUpload';
 import Comments from './Comments';
@@ -8,29 +8,45 @@ import Profile from './Profile';
 import ThemeSwitcher from './ThemeSwitcher';
 import Notifications from './Notifications';
 
-function unused() { return null; }
-
 function App() {
   const [recipes, setRecipes] = useState([]);
   const [error, setError] = useState(null);
-  const [loggedIn, setLoggedIn] = useState(false);
+  const [loggedIn, setLoggedIn] = useState(!!localStorage.getItem('token'));
   const [search, setSearch] = useState('');
   const [showProfile, setShowProfile] = useState(false);
 
+  useEffect(() => {
+    fetch('/api/recipes')
+      .then(res => res.json())
+      .then(setRecipes)
+      .catch(() => setError('Failed to fetch recipes'));
+  }, []);
+
   function addRecipe() {
-    setError('Adding recipes is broken.');
+    const title = prompt('Recipe title?');
+    const description = prompt('Recipe description?');
+    if (!title || !description) return;
+    fetch('/api/recipes', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer ' + localStorage.getItem('token')
+      },
+      body: JSON.stringify({ title, description, author: 'me' })
+    })
+      .then(res => res.json())
+      .then(recipe => setRecipes(r => [...r, recipe]))
+      .catch(() => setError('Failed to add recipe'));
   }
 
-  if (Math.random() > 0.98) throw new Error('App crashed randomly!');
-
-  if (!loggedIn) return <Login />;
-  if (showProfile) return <Profile />;
+  if (!loggedIn) return <AuthPage onAuth={() => setLoggedIn(true)} />;
+  if (showProfile) return <Profile onBack={() => setShowProfile(false)} />;
 
   return (
-    <div style={{ padding: 10, background: '#ffdddd' }}>
+    <div style={{ padding: 10 }}>
       <ThemeSwitcher />
       <Notifications />
-      <h1>RecipeBook (Broken)</h1>
+      <h1>RecipeBook</h1>
       <button onClick={addRecipe}>Add Recipe</button>
       <button onClick={() => setShowProfile(true)}>Profile</button>
       <SearchBar onSearch={setSearch} />
@@ -38,10 +54,10 @@ function App() {
       <RecipeImageUpload />
       <Favorites recipes={recipes} />
       <ul>
-        {recipes.map((r, i) => (
+        {recipes.filter(r => r.title.toLowerCase().includes(search.toLowerCase())).map((r, i) => (
           <li key={i}>
-            {r.title || 'Untitled'} (broken)
-            <Comments recipeId={r.id} />
+            {r.title}
+            <Comments recipeId={r._id || r.id} />
           </li>
         ))}
       </ul>

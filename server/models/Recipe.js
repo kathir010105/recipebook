@@ -1,12 +1,10 @@
-// Recipe model (placeholder for MongoDB integration)
-class Recipe {
-  constructor(data) {
-    this.id = data.id || Date.now();
-    this.title = data.title || '';
-    this.description = data.description || '';
-    this.author = data.author || '';
-    this.createdAt = data.createdAt || new Date();
-  }
-}
+const mongoose = require('mongoose');
 
-module.exports = Recipe; 
+const recipeSchema = new mongoose.Schema({
+  title: { type: String, required: true },
+  description: { type: String, required: true },
+  author: { type: String, required: true },
+  createdAt: { type: Date, default: Date.now }
+});
+
+module.exports = mongoose.model('Recipe', recipeSchema); 

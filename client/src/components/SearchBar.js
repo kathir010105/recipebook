@@ -7,9 +7,13 @@ function SearchBar({ onSearch }) {
     onSearch(query);
   }
 
+  function handleKeyDown(e) {
+    if (e.key === 'Enter') handleSearch();
+  }
+
   return (
     <div>
-      <input value={query} onChange={e => setQuery(e.target.value)} placeholder="Search recipes (broken)" />
+      <input value={query} onChange={e => setQuery(e.target.value)} onKeyDown={handleKeyDown} placeholder="Search recipes" />
       <button onClick={handleSearch}>Search</button>
     </div>
   );
