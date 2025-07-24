@@ -25,8 +25,8 @@ const AuthPage = ({ onAuth }) => {
         ? { username, password }
         : { username, email, password };
       const res = await fetch(endpoint, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(body)
       });
       const data = await res.json();
@@ -50,7 +50,7 @@ const AuthPage = ({ onAuth }) => {
       setError('Something went wrong.');
     } finally {
       setLoading(false);
-    }
+  }
   };
 
   return (
@@ -145,7 +145,7 @@ const AuthPage = ({ onAuth }) => {
         {error && (
           <div style={{ color: error.includes('success') ? 'green' : 'red', textAlign: 'center' }}>{error}</div>
         )}
-      </form>
+    </form>
     </div>
   );
 };

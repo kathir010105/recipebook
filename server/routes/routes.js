@@ -53,11 +53,11 @@ router.get('/recipes', async (req, res) => {
 
 // Example POST
 router.post('/recipes', async (req, res) => {
-  const { title, description, author } = req.body;
+  const { title, description, author, image } = req.body;
   if (!title || !description || !author) {
     return res.status(400).json({ error: 'Missing fields' });
   }
-  const newRecipe = new Recipe({ title, description, author });
+  const newRecipe = new Recipe({ title, description, author, image });
   await newRecipe.save();
   res.status(201).json(newRecipe);
 });
@@ -102,6 +102,18 @@ router.get('/profile', async (req, res) => {
     res.json({ username: user.username, email: user.email });
   } catch (err) {
     res.status(401).json({ error: 'Invalid token' });
+  }
+});
+
+// Delete recipe by ID
+router.delete('/recipes/:id', async (req, res) => {
+  try {
+    const { id } = req.params;
+    const deleted = await Recipe.findByIdAndDelete(id);
+    if (!deleted) return res.status(404).json({ error: 'Recipe not found' });
+    res.json({ message: 'Recipe deleted' });
+  } catch (err) {
+    res.status(500).json({ error: 'Server error' });
   }
 });
 

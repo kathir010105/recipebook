@@ -12,9 +12,10 @@ function SearchBar({ onSearch }) {
   }
 
   return (
-    <div>
+    <div className=''>
       <input value={query} onChange={e => setQuery(e.target.value)} onKeyDown={handleKeyDown} placeholder="Search recipes" />
       <button onClick={handleSearch}>Search</button>
+    
     </div>
   );
 }
